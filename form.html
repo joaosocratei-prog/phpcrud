@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            border-radius: 8px;
+            border: none;
+            background-color:cornsilk;
+            height: 35px;
+
+        }
+        .name{
+            margin-left: 100px;
+            margin-top: 90px;
+        }
+        body{
+            background-color: wheat;
+        }
+          a{
+            margin-left: 90px;
+            color: blue;
+        }    
+         button{
+            border-radius: 6px;
+            border: none;
+            background-color: blue;
+            color: aliceblue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            height: 30px;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+ </style>
+</head>
+<body><br>
+    <div class="name">
+        <form action="" method="POST">
+            <h2>create accout</h2>
+            <input type="text" name="username" placeholder="Enter username" size="45"><br>
+            <br><br>
+            <input type="password" name="password" placeholder="Enter password" size="45"><br><br><br>
+            <a href="login.php">try again</a>
+            <button type="submit" name="send">send</button>
+
+        </form></div>
+    
+</body>
+</html>
+<?php
+include("connection.php");
+
+
+if(isset($_POST['send'])){
+    $u = $_POST['username'];
+    $p = $_POST['password'];
+    $query =mysqli_query($sec, "INSERT INTO `user` (`u_id`, `username`, `password`) VALUES ('', '$u', '$p')");
+
+    if($query == TRUE){
+        echo"yes";
+    }else{
+        echo"no";
+    }
+    
+}
+?>
