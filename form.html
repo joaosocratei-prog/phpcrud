@@ -10,8 +10,14 @@
             border: none;
             background-color:cornsilk;
             height: 35px;
+            box-shadow: 5px 5px 5px blue;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
 
         }
+        input:hover {
+            transform: translateX(15px);
+            box-shadow: 10px 10px 10px blue;
+}
         .name{
             margin-left: 100px;
             margin-top: 90px;
@@ -42,6 +48,7 @@
             <h2>create accout</h2>
             <input type="text" name="username" placeholder="Enter username" size="45"><br>
             <br><br>
+            <input type="email" name="email" placeholder="Enter email" size="45"><br><br><br>
             <input type="password" name="password" placeholder="Enter password" size="45"><br><br><br>
             <a href="login.php">try again</a>
             <button type="submit" name="send">send</button>
@@ -56,8 +63,9 @@ include("connection.php");
 
 if(isset($_POST['send'])){
     $u = $_POST['username'];
+    $e = $_POST['email'];
     $p = $_POST['password'];
-    $query =mysqli_query($sec, "INSERT INTO `user` (`u_id`, `username`, `password`) VALUES ('', '$u', '$p')");
+    $query =mysqli_query($sec,"INSERT INTO `employee` (`e_id`, `username`, `email`, `password`) VALUES ('', 'u', 'e', 'p')");
 
     if($query == TRUE){
         echo"yes";

@@ -51,7 +51,7 @@
               <form action="" method="POST">
                 <p class="pp" style="font-size: 37px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" >LOGIN</p>
                  <input type="text" name="username" placeholder="enter your username" size="40"><br><br><br>
-                  <input type="text" name="password" placeholder="enter your password" size="40"><br><br> 
+                  <input type="password" name="password" placeholder="enter your password" size="40"><br><br> 
                   <a href="form.html">create account</a>
                   <button type="submit" name="login">login </button>
                   <p>create your account if is not and then login successfuly</p>
@@ -65,7 +65,7 @@
                  if(isset($_POST['login'])){ 
                     $u=$_POST['username']; 
                     $p=$_POST['password'];
-                     $query=mysqli_query($sec,"select * FROM user WHERE username='$u' AND password='$p'"); 
+                     $query=mysqli_query($sec,"select * FROM employee WHERE username='$u' AND password='$p'"); 
                      if(mysqli_num_rows($query)==1){    
                          $r=mysqli_fetch_array($query);
                           $_SESSION['username']=$r['username'];
