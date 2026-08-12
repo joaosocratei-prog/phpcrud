@@ -11,10 +11,12 @@
             background-color: black;
             color: aliceblue;
             height: 30px;
-            box-shadow: 5px 5px 10px blue   ;
-            
-
-
+            box-shadow: 5px 5px 10px blue;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+         input:hover {
+            transform: translateX(15px);
+            box-shadow: 10px 10px 10px blue;
         }
         .name{
             margin-left: 100px;
@@ -23,19 +25,25 @@
         button{
             border-radius: 6px;
             border: none;
-            background-color: blue;
+            background-color: black;
             color: aliceblue;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             height: 24px;
             margin-left: 20px;
             margin-top: 20px;
+            box-shadow: 5px 5px 5px blue;
+            transform: translate 2.4s ease-in-out, box-shadow 2.4s ease-in-out;
+        }
+         button:hover {
+            transform: translateX(10px);
+            box-shadow: 10px 10px 10px blue;
         }
         a{
             margin-left: 90px;
             color: blue;
         }
         p{
-            transform: translateY(-15px);
+            transform: translateY(-8px);
             font-size: small;
             cursor: pointer;
         }
@@ -45,7 +53,7 @@
 <body>
         <?php 
         if(isset($error)){ 
-            echo"<P style='color:red'>$error</p>";
+            echo"<P style='color: red;'>$error</p>";
              } ?>
              <div class="name">
               <form action="" method="POST">
@@ -63,12 +71,13 @@
                  session_start(); 
                  include("connection.php"); 
                  if(isset($_POST['login'])){ 
-                    $u=$_POST['username']; 
-                    $p=$_POST['password'];
-                     $query=mysqli_query($sec,"select * FROM employee WHERE username='$u' AND password='$p'"); 
+                    $u= $_POST['username']; 
+                    $p= $_POST['password'];
+
+                     $query=mysqli_query($sec, "SELECT * FROM employee WHERE username='$u' AND password='$p'"); 
                      if(mysqli_num_rows($query)==1){    
-                         $r=mysqli_fetch_array($query);
-                          $_SESSION['username']=$r['username'];
+                         $q=mysqli_fetch_array($query);
+                          $_SESSION['username']=$q['username'];
                            header("location: index.html"); exit(); 
                            }else{ 
                             echo"<p style='color: red; margin-left: 100px; transform: translateY(-80px); font-weight: bold; cursor: pointer;' >!!!wrong username and password!!!</p>"; 
