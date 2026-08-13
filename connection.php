@@ -1,3 +1,3 @@
 <?php
-$sec = mysqli_connect("localhost","root","","staff");
+$s = mysqli_connect("localhost","root","","staff");
 ?>
