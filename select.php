@@ -1,11 +1,22 @@
 <?php
 include("connection.php");
 
-$query = mysqli_query($s, "SELECT * FROM employee");
-
-if (!$query) {
-    die("SELECT ERROR: " . mysqli_error($s));
-}
+$query = mysqli_query(
+    $s,
+    "SELECT 
+        messages.*,
+        employee.username
+     FROM messages
+     INNER JOIN employee
+     ON messages.user_id = employee.e_id
+     WHERE 
+        (messages.user_id='$current_user'
+        AND messages.receiver_id='$receiver_id')
+        OR
+        (messages.user_id='$receiver_id'
+        AND messages.receiver_id='$current_user')
+     ORDER BY messages.created_at ASC"
+);
 ?>
 
 <table border="4">

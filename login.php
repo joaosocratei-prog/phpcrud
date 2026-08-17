@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include("connection.php");
 
@@ -9,37 +10,43 @@ if (isset($_POST['login'])) {
     $u = trim($_POST['username']);
     $p = trim($_POST['password']);
 
-    // Banza urebe niba fields zuzuye
     if ($u == "" || $p == "") {
 
-        $error = "Please enter username and password";
+        $error = "Please enter username and password.";
 
     } else {
 
-        $query = mysqli_query($s,"SELECT * FROM employee WHERE username='$u' AND password='$p'");
+        $query = mysqli_query(
+            $s,
+            "SELECT * FROM employee 
+             WHERE username='$u' AND password='$p'"
+        );
 
         if (mysqli_num_rows($query) == 1) {
 
-            $q = mysqli_fetch_array($query);
+            $q = mysqli_fetch_assoc($query);
 
+            // IMPORTANT
+            $_SESSION['user_id'] = $q['e_id'];
             $_SESSION['username'] = $q['username'];
 
-            header("Location: select.php");
+            header("Location: chat.php");
             exit();
 
         } else {
 
-            $error = "Invalid username and password";
+            $error = "Invalid username and password.";
         }
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>login</title>
     <style>
         input{
             border-radius: 6px;

@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .h{
+        .name{
             padding-top: 90px;
-            padding-left: 65px;
+            margin-left: 210px;
+            color:blanchedalmond;
+            font-size: 40px;
+
         
     
         }
@@ -16,6 +19,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             justify-content: center;
+            
         }
         img{
             height: 70px;
@@ -24,21 +28,18 @@
             border-color: azure;
 
         }
-        button:hover{
-            border-radius: 8px;
-            height: 25px;
-            border: navy;
-            color:brown;
-            background-color:orangered;
-
+        a{
+            font-size: 25px;
+            margin-left: 500px;
+            text-decoration: none;
         }
+    
 
     </style>
 </head>
-<body><center>
-    <img src="figure.png" alt="my img">
-<h1  style="color: blue" class="h">🎡Edtech intake july</h1>
-<button>save</button>
-</center></body>
+<body><div class="name">
+<h3>okey, welcome user you are allowed to use this chatdot</h3>
+    <h3>and also you should press continue to continue to your chat</h3></div>
+    <a href="chat.php">continue</a>
 </body>
 </html>     

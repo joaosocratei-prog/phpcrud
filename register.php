@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>register</title>
     <style>
         input{
             border-radius: 8px;
@@ -11,7 +11,7 @@
             background-color:cornsilk;
             height: 35px;
             box-shadow: 5px 5px 5px blue;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;       
+            transition: transform 0.4s ease, box-shadow 0.4s ease;        
 
         }
         input:hover {
@@ -24,6 +24,7 @@
         }
         body{
             background-color: wheat;
+            scroll-behaviour: smooth;
         }
           a{
             margin-left: 90px;
